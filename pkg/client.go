@@ -40,7 +40,7 @@ func readBody(resp *http.Response) ([]byte, error) {
 
 // SendRequest creates the request then send it and returns the response and an error if exists
 func (c Client) sendRequest() (*http.Response, error) {
-	url := baseUrl+c.Endpoint
+	url := baseUrl + c.Endpoint
 
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {

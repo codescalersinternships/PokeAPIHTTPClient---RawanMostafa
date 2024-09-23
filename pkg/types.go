@@ -1,12 +1,12 @@
 package pokemon
 
 type Resource struct {
-	Count    int
-	Next     string
-	Previous string
-	Result   []Result
+	Count    int      `json:"count"`
+	Next     string   `json:"next"`
+	Previous string   `json:"previous"`
+	Results  []Result `json:"results"`
 }
 type Result struct {
-	Url  string
-	Name string
+	Url  string `json:"url"`
+	Name string `json:"name"`
 }
