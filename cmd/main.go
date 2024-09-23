@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"log"
 	"os"
@@ -45,5 +46,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	log.Printf("%v\n", pokemon)
+	poke, _ := json.MarshalIndent(pokemon, "", "		")
+	log.Println(string(poke))
 }
