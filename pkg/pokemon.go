@@ -1,3 +1,4 @@
+// This package implements an http client for resource and pokemon APIs from pokeAPI
 package pokemon
 
 import (
@@ -6,7 +7,8 @@ import (
 
 	"golang.org/x/exp/slog"
 )
-
+// Pokemon takes the pokemon id as an integer, send the request with the /pokemon endpoint 
+// parses the response and returns the Pokemon object and an error if exists
 func (c Client) Pokemon(id int) (pokemon Pokemon, err error) {
 	c.Endpoint = fmt.Sprintf("/pokemon/%d", id)
 	resp, err := c.sendRequest()

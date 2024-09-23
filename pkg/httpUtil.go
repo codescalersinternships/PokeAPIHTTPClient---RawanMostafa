@@ -1,4 +1,4 @@
-// This package implements an http client
+// This package implements an http client for resource and pokemon APIs from pokeAPI
 package pokemon
 
 import (
