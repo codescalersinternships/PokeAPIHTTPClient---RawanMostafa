@@ -47,6 +47,7 @@ func (c Client) sendRequest(options ...int) (*http.Response, error) {
 		offset = options[0]
 	}
 
+
 	url := baseUrl + c.Endpoint + fmt.Sprintf("?offset=%d&limit=%d", offset, limit)
 
 	req, err := http.NewRequest("GET", url, nil)
