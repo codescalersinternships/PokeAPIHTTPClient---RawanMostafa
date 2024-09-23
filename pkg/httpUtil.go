@@ -2,7 +2,6 @@
 package pokemon
 
 import (
-	"encoding/json"
 	"fmt"
 	"io"
 	"net/http"
@@ -38,9 +37,8 @@ func readBody(resp *http.Response) ([]byte, error) {
 	return body, nil
 }
 
-// SendRequest creates the request then send it and returns the response and an error if exists
-func (c Client) sendRequest() (*http.Response, error) {
-	url := baseUrl + c.Endpoint
+func (c Client) sendRequest(offset int, limit int) (*http.Response, error) {
+	url := baseUrl + c.Endpoint + fmt.Sprintf("?offset=%d&limit=%d", offset, limit)
 
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
@@ -57,18 +55,4 @@ func (c Client) sendRequest() (*http.Response, error) {
 	slog.Info("your request has been sent successfully!")
 
 	return resp, nil
-}
-
-func (c Client) Resource() (resource Resource, err error) {
-	resp, err := c.sendRequest()
-	if err != nil {
-		return
-	}
-	body, err := readBody(resp)
-	if err != nil {
-		return
-	}
-	err = json.Unmarshal(body, &resource)
-
-	return
 }

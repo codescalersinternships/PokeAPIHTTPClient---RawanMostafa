@@ -41,9 +41,9 @@ func main() {
 	endpoint := decideConfigs()
 
 	c := pkg.NewClient(endpoint, time.Second)
-	resource, err := c.Resource()
+	resource, err := c.Resource(5,5)
 	if err != nil {
 		log.Fatal(err)
 	}
-	log.Printf("%v", resource)
+	log.Printf("%v\n", resource)
 }
