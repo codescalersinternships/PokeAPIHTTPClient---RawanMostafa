@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	pkg "github.com/codescalersinternships/PokeAPIHTTPClient-RawanMostafa/pkg"
+	pokemon "github.com/codescalersinternships/PokeAPIHTTPClient-RawanMostafa/pkg"
 )
 
 const defaultEndpoint = "/machine"
@@ -40,10 +40,10 @@ func decideConfigs() string {
 func main() {
 	endpoint := decideConfigs()
 
-	c := pkg.NewClient(endpoint, time.Second)
-	resource, err := c.Resource(5,5)
+	c := pokemon.NewClient(endpoint, time.Second)
+	pokemon, err := c.Pokemon(1)
 	if err != nil {
 		log.Fatal(err)
 	}
-	log.Printf("%v\n", resource)
+	log.Printf("%v\n", pokemon)
 }

@@ -37,7 +37,16 @@ func readBody(resp *http.Response) ([]byte, error) {
 	return body, nil
 }
 
-func (c Client) sendRequest(offset int, limit int) (*http.Response, error) {
+func (c Client) sendRequest(options ...int) (*http.Response, error) {
+	var offset int
+	var limit int
+	if len(options) == 2 {
+		offset = options[0]
+		limit = options[1]
+	} else if len(options) == 1 {
+		offset = options[0]
+	}
+
 	url := baseUrl + c.Endpoint + fmt.Sprintf("?offset=%d&limit=%d", offset, limit)
 
 	req, err := http.NewRequest("GET", url, nil)
