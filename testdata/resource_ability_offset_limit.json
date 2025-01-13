@@ -1,0 +1,27 @@
+{
+    "count": 367,
+    "next": "https://pokeapi.co/api/v2/ability?offset=10&limit=5",
+    "previous": "https://pokeapi.co/api/v2/ability?offset=0&limit=5",
+    "results": [
+        {
+            "name": "damp",
+            "url": "https://pokeapi.co/api/v2/ability/6/"
+        },
+        {
+            "name": "limber",
+            "url": "https://pokeapi.co/api/v2/ability/7/"
+        },
+        {
+            "name": "sand-veil",
+            "url": "https://pokeapi.co/api/v2/ability/8/"
+        },
+        {
+            "name": "static",
+            "url": "https://pokeapi.co/api/v2/ability/9/"
+        },
+        {
+            "name": "volt-absorb",
+            "url": "https://pokeapi.co/api/v2/ability/10/"
+        }
+    ]
+}
